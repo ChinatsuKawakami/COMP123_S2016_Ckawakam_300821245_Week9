@@ -65,17 +65,22 @@
             // 
             // UsernametextBox
             // 
-            this.UsernametextBox.Location = new System.Drawing.Point(33, 95);
+            this.UsernametextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.UsernametextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UsernametextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.UsernametextBox.Location = new System.Drawing.Point(33, 105);
             this.UsernametextBox.Name = "UsernametextBox";
             this.UsernametextBox.Size = new System.Drawing.Size(231, 19);
             this.UsernametextBox.TabIndex = 3;
+            this.UsernametextBox.Leave += new System.EventHandler(this.UsernametextBox_Leave);
             // 
             // PasswordtextBox
             // 
-            this.PasswordtextBox.Location = new System.Drawing.Point(37, 160);
+            this.PasswordtextBox.Location = new System.Drawing.Point(37, 153);
             this.PasswordtextBox.Name = "PasswordtextBox";
             this.PasswordtextBox.Size = new System.Drawing.Size(227, 19);
             this.PasswordtextBox.TabIndex = 4;
+            this.PasswordtextBox.Leave += new System.EventHandler(this.PasswordtextBox_Leave);
             // 
             // button1
             // 
@@ -89,6 +94,7 @@
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 262);
