@@ -16,7 +16,7 @@ namespace COMP123_S2016_Week9A
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new calcutator());
         }
     }
 }
