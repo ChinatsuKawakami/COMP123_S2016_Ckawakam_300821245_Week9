@@ -13,6 +13,10 @@ namespace COMP123_S2016_Week9A
 {
     public partial class calcutator : Form
     {
+
+        public string ActiveOperator { get; set; }
+        public string FirstOperand { get; set; }
+        public string SecondOperand { get; set; }
         public calcutator()
         {
             InitializeComponent();
@@ -26,7 +30,11 @@ namespace COMP123_S2016_Week9A
             // nad tell C sharp that it is a button
             Button buttonClicked = (Button)sender;
             Debug.WriteLine(buttonClicked.Text);
-
+            //check to see if ResultTextBox a 0 in it
+            if(String.Equals(ResultTextBox.Text,"0"))
+            {
+                ResultTextBox.Clear();
+            }
             // read the string in the TextBox
             string currentResult = ResultTextBox.Text;
 
@@ -38,5 +46,75 @@ namespace COMP123_S2016_Week9A
 
             ResultTextBox.Text = currentResult;
         }
+
+        private void Clearbutton_Click(object sender, EventArgs e)
+        {
+            ResultTextBox.Text ="0";
+            this.FirstOperand = "0";
+            this.SecondOperand = "0";
+           // Debug.WriteLine(this.ActiveOperator);
+        }
+
+        private void Operator_Click(object sender, EventArgs e)
+        {
+            Button operatorClicked = (Button)sender;
+            this.ActiveOperator = operatorClicked.Text;
+
+            if(String.IsNullOrEmpty(this.FirstOperand))
+            {
+                this.FirstOperand = ResultTextBox.Text;
+            }if(String.IsNullOrEmpty(this.SecondOperand))
+            {
+                this.SecondOperand = ResultTextBox.Text;
+            }
+            ResultTextBox.Clear();
+
+            //Debug.WriteLine(this.ActiveOperator);
+        }
+
+        private void EqualButton_Click(object sender, EventArgs e)
+        {
+            int FirstNumber=0;
+            int SecondNumber=0;
+            int result = 0;
+
+            if(String.IsNullOrEmpty(this.FirstOperand))
+            {
+                FirstNumber = Convert.ToInt32(this.FirstOperand);
+
+            }
+            if(String.IsNullOrEmpty(this.SecondOperand))
+            {
+                SecondNumber = Convert.ToInt32(this.SecondOperand);
+
+            }
+            
+            switch(ActiveOperator)
+            {
+                case "+":
+                    result = FirstNumber + SecondNumber;
+                    break;
+                case "-":
+                    result = FirstNumber - SecondNumber;
+                    break;
+                case "x":
+                    result = FirstNumber * SecondNumber;
+                    break;
+                case "/":
+                    result = FirstNumber / SecondNumber;
+                    break;
+                    
+            }
+            ResultTextBox.Text = result.ToString();
+        }
+
+        
+
+     
+  
+
+
+
+       
     }
 }
